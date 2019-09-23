@@ -1,0 +1,35 @@
+{
+  "expo": {
+    "name": "PushBase",
+    "slug": "PushBase",
+    "description": "A simple react native starter/boilerplate developed using React native + Expo + React Navigation + Nativebase + Redux + Redux Thunk + Redux Persist ",
+    "privacy": "public",
+    "sdkVersion": "33.0.0",
+    "platforms": [
+      "ios",
+      "android",
+      "web"
+    ],
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./app/assets/icon.png",
+    "splash": {
+      "image": "./app/assets/splash.png",
+      "resizeMode": "cover",
+      "backgroundColor": "#7f70e7"
+    },
+    "updates": {
+      "fallbackToCacheTimeout": 0
+    },
+    "assetBundlePatterns": [
+      "app/assets/*"
+    ],
+    "android": {
+      "package": "com.pushpanathan.pushbase"
+    },
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.pushpanathan.pushbase"
+    }
+  }
+}
