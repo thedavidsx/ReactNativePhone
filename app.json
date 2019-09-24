@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "PushBase",
-    "slug": "PushBase",
+    "name": "Locutorios",
+    "slug": "Locutorios",
     "description": "A simple react native starter/boilerplate developed using React native + Expo + React Navigation + Nativebase + Redux + Redux Thunk + Redux Persist ",
     "privacy": "public",
     "sdkVersion": "33.0.0",
@@ -16,7 +16,7 @@
     "splash": {
       "image": "./app/assets/splash.png",
       "resizeMode": "cover",
-      "backgroundColor": "#7f70e7"
+      "backgroundColor": "#426BA6"
     },
     "updates": {
       "fallbackToCacheTimeout": 0
