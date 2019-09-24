@@ -33,4 +33,8 @@ export default {
   ForgotPassword : {
     route: 'ForgotPassword'
   }, 
+  CallScreen : {
+    route : 'Call',
+    label: Strings.settings,
+  }
 };
