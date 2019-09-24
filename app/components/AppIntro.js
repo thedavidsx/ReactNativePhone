@@ -36,21 +36,15 @@ class AppIntro extends React.Component {
         key: 'slide2',
         title: language.slide2Title,
         text: language.slide2Text,
-        image: imgs.placeholder,
-      },
-      {
-        key: 'slide3',
-        title: language.slide3Title,
-        text: language.slide3Text,
-        image: imgs.placeholder,
+        image: imgs.placeholder2,
       }
     ];
   }
   renderItem = ({ item }) => {
     return (
-      <View style={[appStyles.slide,appStyles.rowXYcenter,{padding:Layout.indent}]}>
-        <Text style={appStyles.slideTitle}>{item.title}</Text>
+      <View style={[appStyles.slide,appStyles.rowXYcenter,{padding:Layout.indent}, Colors.white]}>
         <Image source={item.image} style={appStyles.slideImage} resizeMode="contain"/>
+        <Text style={appStyles.slideTitle}>{item.title}</Text>
         <Text style={appStyles.slideText}>{item.text}</Text>
       </View>
     );

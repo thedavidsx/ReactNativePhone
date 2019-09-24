@@ -12,7 +12,7 @@
     "expo": "^33.0.0",
     "expo-constants": "^6.0.0",
     "expo-font": "^6.0.1",
-    "native-base": "^2.13.4",
+    "native-base": "^2.13.8",
     "querystring": "^0.2.0",
     "react": "16.8.3",
     "react-dom": "^16.8.6",

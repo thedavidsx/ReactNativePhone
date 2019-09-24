@@ -3,7 +3,7 @@ import { Icon } from 'native-base';
 import Strings from './Strings';
 
 export default {
-  Title: 'PushBase',
+  Title: 'Locutorios',
   SignInStack : {
     route: 'SignInStack'
   }, 
