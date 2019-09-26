@@ -35,6 +35,7 @@ export default {
   }, 
   CallScreen : {
     route : 'Call',
-    label: Strings.settings,
+    icon:'settings',
+    label: Strings.call,
   }
 };
