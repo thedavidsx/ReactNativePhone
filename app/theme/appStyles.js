@@ -8,6 +8,12 @@ export default StyleSheet.create({
     justifyContent: 'center',
     backgroundColor: Colors.primary,
   },
+  containerCall:{
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: Colors.white,
+  },
   statusBar:{
     flex: 1,
     height:Layout.statusBarHeight
@@ -168,6 +174,14 @@ export default StyleSheet.create({
     textAlign:'center',
     fontFamily: 'Font-Regular',
   },
+  callTitle:{
+    fontSize: 12,
+    color:Colors.black,
+    marginLeft: Layout.indent,
+    marginTop: Layout.window.height / 2 - 120,
+    textAlign:'center',
+    fontFamily: 'Font-Regular',
+  },
   loginBack:{
     marginTop:Layout.doubleIndent,
     justifyContent:'flex-start',
@@ -178,7 +192,13 @@ export default StyleSheet.create({
 
   // Input
   itemInput:{
-
+    marginTop:15,
+    color: Colors.black,
+    width:Layout.window.width,
+    paddingLeft:Layout.indent,
+    paddingRight:Layout.indent,
+    fontFamily: 'Font-Regular',
+    fontSize:14
   },
   textbox:{
     marginTop:15,
@@ -193,5 +213,19 @@ export default StyleSheet.create({
     color: Colors.red,
     top:20,
     fontSize:12
+  },
+  CallText:{
+    textAlign:'center',
+    fontSize:20,
+    color: Colors.lightBlack
+  },
+  btnCall:{
+    backgroundColor: Colors.primary,
+    fontFamily: 'Font-Regular',
+    borderRadius:100,
+    marginLeft:Layout.indent,
+    marginRight:Layout.indent,
+    textAlign:'center',
+    width:Layout.window.width / 2
   }
 });
