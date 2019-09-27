@@ -40,6 +40,7 @@ class Call extends React.Component {
 	}
   render(){
     return (
+      
       <Container style={appStyles.containerCall}>
         <Content enableOnAndroid>
           <View style={{flexDirection: 'column', flex:1}}>

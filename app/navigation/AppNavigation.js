@@ -4,6 +4,7 @@ import { createStackNavigator, createDrawerNavigator } from 'react-navigation'
 
 import { SignIn, SignUp, Forgotpassword, Home, Drawer, Settings, Call } from "../containers";
 import { Colors, Screens } from "../constants";
+import Contacts from '../containers/Contacts';
 
 const transitionConfig = () => ({
       transitionSpec: {
@@ -45,6 +46,9 @@ const DrawerStack = createDrawerNavigator({
   },
   [Screens.CallScreen.route]:{
     screen: Call
+  },
+  [Screens.ContactScreen.route]:{
+    screen: Contacts
   }
 }, {
   gesturesEnabled: true,

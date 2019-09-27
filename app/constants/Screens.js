@@ -37,5 +37,10 @@ export default {
     route : 'Call',
     icon:'settings',
     label: Strings.call,
+  },
+  ContactScreen : {
+    route : 'Contacts',
+    icon:'settings',
+    label: Strings.contacts,
   }
 };

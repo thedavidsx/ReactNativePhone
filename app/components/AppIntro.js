@@ -42,10 +42,9 @@ class AppIntro extends React.Component {
   }
   renderItem = ({ item }) => {
     return (
-      <View style={[appStyles.slide,appStyles.rowXYcenter,{padding:Layout.indent}, Colors.white]}>
+      <View style={[appStyles.slide,appStyles.rowXYcenter,{padding:Layout.indent, backgroundColor:appStyles.containerCall}, Colors.white,]}>
         <Image source={item.image} style={appStyles.slideImage} resizeMode="contain"/>
-        <Text style={appStyles.slideTitle}>{item.title}</Text>
-        <Text style={appStyles.slideText}>{item.text}</Text>
+        <Text style={appStyles.callTitle}>{item.text}</Text>
       </View>
     );
   }
