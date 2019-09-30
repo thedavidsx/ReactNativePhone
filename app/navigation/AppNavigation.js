@@ -4,6 +4,7 @@ import {  createDrawerNavigator,createAppContainer } from 'react-navigation'
 import {createStackNavigator} from 'react-navigation-stack';
 import { SignIn, SignUp, Forgotpassword, Home, Drawer, Settings, Call } from "../containers";
 import { Colors, Screens } from "../constants";
+import Contacts from '../containers/Contacts';
 
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import {createBottomTabNavigator} from 'react-navigation-tabs';
@@ -80,6 +81,9 @@ const AppTabs = createBottomTabNavigator(
     },
     [Screens.CallScreen.route]:{
       screen: Call
+    },
+    [Screens.ContactScreen.route]:{
+      screen: Contacts
     }
   },
   {

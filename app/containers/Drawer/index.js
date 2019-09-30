@@ -29,7 +29,7 @@ import { Svgicon } from '../../components';
 class Drawer extends React.Component {
   constructor(props) {
     super(props);
-    this.listItems = [ Screens.Home,Screens.Settings, Screens.CallScreen];
+    this.listItems = [ Screens.Home,Screens.Settings, Screens.CallScreen, Screens.ContactScreen];
   }
 
   logout(){

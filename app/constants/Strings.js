@@ -20,6 +20,8 @@ export default[
 		categories: 'Categorías',
 		settings: 'Configuración',
 		call: 'Llamar',
+		contacts: 'Prueba',
+
 		// App intro sliders
 		slide1Title: 'Llamadas Internacionales',
 		slide1Text: 'Llama a donde quieras, cuando quieras desde tu celular usando WIFI o tus datos moviles',
