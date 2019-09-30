@@ -1,9 +1,15 @@
 import React from 'react'
 import { Text, Animated, Easing } from 'react-native'
-import { createStackNavigator, createDrawerNavigator } from 'react-navigation'
-
+import {  createDrawerNavigator,createAppContainer } from 'react-navigation'
+import {createStackNavigator} from 'react-navigation-stack';
 import { SignIn, SignUp, Forgotpassword, Home, Drawer, Settings, Call } from "../containers";
 import { Colors, Screens } from "../constants";
+
+import Ionicons from 'react-native-vector-icons/Ionicons';
+import {createBottomTabNavigator} from 'react-navigation-tabs';
+import Svgicon from '../components/Svgicon';
+import { Icon } from 'react-native-elements';
+
 
 const transitionConfig = () => ({
       transitionSpec: {
@@ -36,37 +42,88 @@ const transitionConfig = () => ({
     });
 
 // drawer stack
-const DrawerStack = createDrawerNavigator({
-  [Screens.Home.route]: { 
-    screen: Home 
+// const DrawerStack = createDrawerNavigator({
+//   [Screens.Home.route]: { 
+//     screen: Home 
+//   },
+//   [Screens.Settings.route]: { 
+//     screen: Settings 
+//   },
+//   [Screens.CallScreen.route]:{
+//     screen: Call
+//   }
+// }, {
+//   gesturesEnabled: true,
+//   // drawerBackgroundColor: 'rgba(255,255,255,.9)',
+//   drawerType: 'front',
+//   hideStatusBar: false,
+//   statusBarAnimation: 'slide',
+//   overlayColor: Colors.primaryDark,
+//   contentOptions: {
+//     activeTintColor: Colors.lightBlack,
+//     activeBackgroundColor: Colors.primaryLight,
+//   },
+//   transitionConfig: transitionConfig,
+//   contentComponent: (props) => <Drawer {...props} />,
+// });
+
+
+
+
+const AppTabs = createBottomTabNavigator(
+  {
+    [Screens.Home.route]: { 
+      screen: Home 
+    },
+    [Screens.Settings.route]: { 
+      screen: Settings 
+    },
+    [Screens.CallScreen.route]:{
+      screen: Call
+    }
   },
-  [Screens.Settings.route]: { 
-    screen: Settings 
-  },
-  [Screens.CallScreen.route]:{
-    screen: Call
+  {
+    defaultNavigationOptions: ({ navigation }) => ({
+      tabBarIcon: ({ focused, horizontal, tintColor }) => {
+        const { routeName } = navigation.state;
+        let IconComponent = Svgicon;
+        let iconName;
+        if (routeName === 'Home') {
+          iconName = "ios-home";//!focused ? "ios-add" :  "ios-add-circle"; // "home${focused ? '' : 'check'}";
+        } else if (routeName === 'Settings') {
+          iconName = "ios-settings"; //!focused ? "ios-add" :  "ios-add-circle"; 
+        }else if (routeName === 'Call') {
+          iconName = "ios-call"; //!focused ? "ios-call" :  "ios-add-circle";
+        }else if (routeName === 'Contacts') {
+          iconName = "ios-contacts"; //!focused ? "ios-contacts" :  "ios-add-circle"; 
+        }else if (routeName === 'Wallet'){
+          iconName = "ios-wallet"; //!focused ? "ios-wallet" :  "ios-add-circle"; 
+        }
+        return <Icon  name={iconName} type="ionicon" size={32}/>;
+        //<Ionicons name="md-home"/>
+      },
+    }),
+    tabBarOptions: {
+      activeTintColor: '#426BA6',
+      inactiveTintColor: 'gray',
+    },
   }
-}, {
-  gesturesEnabled: true,
-  // drawerBackgroundColor: 'rgba(255,255,255,.9)',
-  drawerType: 'front',
-  hideStatusBar: false,
-  statusBarAnimation: 'slide',
-  overlayColor: Colors.primaryDark,
-  contentOptions: {
-    activeTintColor: Colors.lightBlack,
-    activeBackgroundColor: Colors.primaryLight,
-  },
-  transitionConfig: transitionConfig,
-  contentComponent: (props) => <Drawer {...props} />,
-});
+);
+
+
 
 const DrawerNavigation = createStackNavigator({
-  [Screens.DrawerStack.route]: { screen: DrawerStack }
+  [Screens.DrawerStack.route]: { screen: createAppContainer(AppTabs)}
+
 }, {
   headerMode: 'none',
   transitionConfig: transitionConfig
 });
+
+/*, {
+  headerMode: 'none',
+  transitionConfig: transitionConfig
+} */
 
 // login stack
 const LoginStack = createStackNavigator({
