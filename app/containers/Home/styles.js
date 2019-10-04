@@ -43,5 +43,14 @@ export default {
   linky: {
     color: 'blue',
     paddingTop: 10
+  },
+  homeStyle : {
+    position: "absolute",
+    width: "750px",
+    height: "226px",
+    left: "0px",
+    top: "0px",
+    background: "#426BA6",
+    boxshadow: "0px 4px 20px rgba(0, 0, 0, 0.14)"
   }
 };

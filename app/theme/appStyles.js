@@ -7,6 +7,7 @@ export default StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     backgroundColor: Colors.primary,
+    marginTop:20
   },
   containerCall:{
     flex: 1,
@@ -228,4 +229,19 @@ export default StyleSheet.create({
     textAlign:'center',
     width:Layout.window.width / 2
   }
+  // ,
+  // titleSub:{
+  //   position: "absolute",
+  //   width: "261px",
+  //   height: "26px",
+  //   left: "0px",
+  //   top: "0px",
+  //   fontFamily: "Font-Regular",
+  //   fontSize: 22,
+  //   lineHeight: 26,
+  //   display: "flex",
+  //   alignItems: "flex-end",
+  //   color: "#FFFFFF",
+  //   opacity: 0.8
+  // }
 });

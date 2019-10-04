@@ -2,7 +2,7 @@ import React from 'react'
 import { StyleSheet, View, ImageBackground, Image} from 'react-native'
 import _ from 'lodash'; 
 import { Layout, Colors } from '../../constants';
-import { Logo, Statusbar } from '../../components';
+import { Logo, Statusbar} from '../../components';
 import imgs from '../../assets/images';
 import {
   Container,
@@ -26,10 +26,9 @@ class Settings extends React.Component {
   render(){
     return (
       <Container style={appStyles.container}>
-        <ImageBackground 
-            source={imgs.bg} 
-            style={ { width: Layout.window.width, height: Layout.window.height }}>
-          <Header transparent>
+        <ImageBackground  source={imgs.bg}  style={ { width: Layout.window.width, height: Layout.window.height }}>
+        <Headers {...this.props} />
+          {/* <Header transparent>
             <Left>
               <Button transparent>
                 <Icon name='menu' onPress={() => this.props.navigation.openDrawer()}/>
@@ -38,7 +37,10 @@ class Settings extends React.Component {
             <Body>
               <Title>Settings</Title>
             </Body>
-          </Header>
+          </Header> */}
+
+
+
           <Content enableOnAndroid>
   
           </Content>

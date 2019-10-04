@@ -30,27 +30,27 @@ class Headers extends React.Component {
   render() {
     return (
         <Header transparent>
-          <Left style={appStyles.row}>
+          {/* <Left style={appStyles.row}>
             <Button transparent style={appStyles.menuBtn} onPress={() => this.props.navigation.openDrawer()}>
               <Svgicon color={Colors.white} name="menu" />
             </Button>
-          </Left>
+          </Left> */}
           <Body style={appStyles.rowXcenter}>
             <TouchableWithoutFeedback onPress={() => this.props.showModal()}>
-              <Logo header={true} />
+              <Logo header={false} />
             </TouchableWithoutFeedback>
           </Body>
-          <Right style={appStyles.row}>
+          {/* <Right style={appStyles.row}>
             <Button transparent>
               <Svgicon color={Colors.white} name="bell" />
             </Button>
-          </Right>
-          <ModalBox 
+          </Right> */}
+          {/* <ModalBox 
                   visibleModal={this.state.visibleModal}
                   content={<SetLanguage />} 
                   style={appStyles.bottomModal}
                   contentStyle={appStyles.setLanguage}
-                  />
+                  /> */}
         </Header>
     );
   }
