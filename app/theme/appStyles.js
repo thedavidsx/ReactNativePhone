@@ -7,6 +7,7 @@ export default StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     backgroundColor: Colors.primary,
+    paddingTop: 20
   },
   containerCall:{
     flex: 1,
@@ -46,6 +47,7 @@ export default StyleSheet.create({
   },
   contentBg:{
     backgroundColor: Colors.white,
+    height: '100%',
     padding: Layout.indent,
     flex:1
   },
