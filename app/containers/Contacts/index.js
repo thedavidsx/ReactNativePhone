@@ -60,11 +60,6 @@ render() {
     return (
       <Container style={{marginTop:22}}>
          <Header style={{backgroundColor: Colors.primary}}>
-            <Left>
-              <Button transparent>
-                <Icon name='menu' onPress={() => this.props.navigation.openDrawer()}/>
-              </Button>
-            </Left>
             <Body>
               <Title>{'Contactos'}</Title>
             </Body>
