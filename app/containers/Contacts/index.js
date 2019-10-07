@@ -21,7 +21,6 @@ import Statusbar from "../../components/Statusbar";
 
 
 class Contacts extends Component {
-
 constructor(props) {
     super(props);
 
@@ -48,10 +47,6 @@ async componentWillMount() {
     this.setState({dataContacts : data});
 }
 
-async componentDidMount() {
-   
-}
-
 setModalVisible(visible) {
     this.setState({modalVisible: visible});
   }
@@ -59,18 +54,20 @@ setModalVisible(visible) {
 render() {
     return (
       <Container style={{marginTop:22}}>
-         <Header style={{backgroundColor: Colors.primary}}>
+        {
+            this.props.callFrom !== '1' ? <Header style={{backgroundColor: Colors.primary}}>
             <Body>
-              <Title>{'Contactos'}</Title>
+            <Title>{'Contactos'}</Title>
             </Body>
-          </Header>
+        </Header> : null
+        }
         <Content>
             {(this.state.dataContacts.length > 0) ? 
             this.state.dataContacts.map((x) => {
                 return(
                     <List>
                         <ListItem onPress={() => {
-                            Alert.alert('Llamar', '¿Desea Llamar a '+x.name+'? ');
+                            Alert.alert('Llamar',  navigation);
                         }}>
                             <Text>{x.name}</Text>
                         </ListItem>
@@ -99,6 +96,10 @@ const mapStateToProps = (state) => {
          logout: () => dispatch(userActions.logoutUser()),
      };
   };
+
+  componentwillreceiveprops = (nextProps) => {
+    Alert(nextProps);
+  }
   
   // Exports
   export default connect(mapStateToProps, mapDispatchToProps)(Contacts);

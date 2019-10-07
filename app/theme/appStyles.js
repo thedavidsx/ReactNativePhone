@@ -7,11 +7,7 @@ export default StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     backgroundColor: Colors.primary,
-<<<<<<< HEAD
-    paddingTop: 20
-=======
     marginTop:20
->>>>>>> 55ed893c6829f2c070ba3d1c760eb2433cdd9d3f
   },
   containerCall:{
     flex: 1,

@@ -49,7 +49,7 @@ class Call extends React.Component {
         </Header>
         <Content>
         <View style={{ width:Layout.window.width, paddingBottom: 160}}>
-          <VirtualKeyboard color='gray' style={{height:250}} cellStyle={{padding:25}} rowStyle={{borderColor:'gray', borderLeft: 1}} applyBackspaceTint={false} pressMode='string' onPress={(val) => this.changeText(val)} />
+          <VirtualKeyboard color='gray' style={{height:250}} cellStyle={{padding:25}} rowStyle={{borderColor:'gray', borderLeft: 1, borderRight: 1}} applyBackspaceTint={false} pressMode='string' onPress={(val) => this.changeText(val)} />
         </View>   
         <View>
         <Animatable.View 
@@ -63,7 +63,7 @@ class Call extends React.Component {
                     style={{backgroundColor: Colors.primary, paddingLeft:10, paddingRight: 10, height:'100%'}}
                     onPress={this.onClic}
                   >
-                    <Text>Llamar</Text>
+                    <Text style={{textAlign:"center"}}>Llamar</Text>
                   </Button>
               }
             </Animatable.View> 
