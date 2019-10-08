@@ -8,16 +8,33 @@ import {
     Button,
     Text,
     List,
-    ListItem,
     Header, Left, Body, Title, Right
   } from 'native-base';
 // import * as Permissions from 'expo-permissions';
 // import * as Contacts_ from 'expo-contacts';
-import {Modal, TouchableHighlight, View, Alert} from 'react-native';
+import {Modal, TouchableHighlight, View, Alert,Image,ImageBackground } from 'react-native';
+import { ListItem } from 'react-native-elements'
+import { Layout, Colors, Screens, ActionTypes } from '../../constants';
 import appStyles from '../../theme/appStyles';
 import Strings from '../../constants/Strings';
-import { Colors } from '../../constants';
 import Statusbar from "../../components/Statusbar";
+import imgs from '../../assets/images';
+
+
+const list = [
+  {
+    name: 'Amy Farha',
+    avatar_url: imgs.contacWhite,
+    subtitle: 'Vice President'
+  },
+  {
+    name: 'Chris Jackson',
+    avatar_url: imgs.contacWhite,
+    subtitle: 'Vice Chairman'
+  }
+];
+
+
 
 
 class RecentCall extends Component {
@@ -54,21 +71,47 @@ async componentDidMount() {
 
 setModalVisible(visible) {
     this.setState({modalVisible: visible});
-  }
+}
+
+renderItem = ({ item }) => (
+  
+  <ListItem
+    title={item.name}
+    subtitle={item.subtitle}
+    leftAvatar={{
+      source: item.avatar_url && { uri: item.avatar_url },
+      title: item.name[0]
+    }}
+    bottomDivider
+    chevron
+  />
+)
 
 render() {
     return (
       <Container style={{marginTop:22}}>
-         {/* <Header style={{backgroundColor: Colors.primary}}>
-            <Body>
-              <Title>{'Contactos'}</Title>
-            </Body>
-          </Header> */}
-        <Content>
-                <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-                    <Text>LLAMADAS RECIENTES.!!!</Text>
-                </View>
-        </Content>
+          <Content>
+            <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+              {/* <Text>LLAMADAS RECIENTES.!!!</Text> */}
+              <Image source={imgs.recentCall} resizeMode="contain" />
+              {/* {
+                list.map((data, index) => (
+                  <ListItem
+                    key={index}
+                    leftAvatar={
+                      { source: { 
+                          uri: 'https://s3.amazonaws.com/uifaces/faces/twitter/adhamdannaway/128.jpg'
+                        }
+                      }
+                    }
+                    title={'Chris Jackson'}
+                    subtitle={'Vice Chairman'}
+                    bottomDivider
+                  />
+                ))
+              } */}
+            </View>
+          </Content>
       </Container>
     );
   }
