@@ -44,6 +44,7 @@ class Home extends React.Component {
 
   render() {
     return (
+<<<<<<< HEAD
       <Container style={{ marginTop: 22}}>
          {/* opacity: this.state.activeModal ? 0.5 : 1  */}
         <Content enableOnAndroid >
@@ -52,6 +53,15 @@ class Home extends React.Component {
              <TabNavigator/>
           </View>
         </Content>
+=======
+      <Container style={{marginTop:22}}>
+          <Content enableOnAndroid>
+          <Headers/>
+            <View>
+              <TabNavigator/>
+            </View>
+          </Content>
+>>>>>>> master
       </Container>
     );
   }
@@ -61,7 +71,7 @@ class Home extends React.Component {
 const TabNavigator = createAppContainer(createMaterialTopTabNavigator(
   {
     "LLAMADAS RECIENTES": { screen: RecentCall },
-    "CONTACTOS": { screen: Contacts },
+    "CONTACTOS": { screen: (props => <Contacts callFrom='1' />)},
   },
   {
     tabBarPosition: 'top',
