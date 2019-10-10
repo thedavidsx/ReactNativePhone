@@ -100,7 +100,7 @@ render() {
                 return(
                     <List>
                         <ListItem onPress={() => {
-                            Alert.alert('Llamar',  'a ' + x.name);
+                            Alert.alert('Llamar ',  'a ' + x.name);
                         }}>
                             <Text>{x.name}</Text>
                         </ListItem>
