@@ -76,11 +76,11 @@ const AppTabs = createBottomTabNavigator(
     [Screens.Home.route]: { 
       screen: Home 
     },
-    [Screens.Settings.route]: { 
-      screen: Settings 
-    },
     [Screens.CallScreen.route]:{
       screen: Call
+    },
+    [Screens.Settings.route]: { 
+      screen: Settings 
     },
     [Screens.ContactScreen.route]:{
       screen: Contacts
@@ -95,11 +95,11 @@ const AppTabs = createBottomTabNavigator(
         if (routeName === 'Home') {
           iconName = "ios-home";//!focused ? "ios-add" :  "ios-add-circle"; // "home${focused ? '' : 'check'}";
         } else if (routeName === 'Settings') {
-          iconName = "ios-settings"; //!focused ? "ios-add" :  "ios-add-circle"; 
+          iconName = "ios-star"; //!focused ? "ios-add" :  "ios-add-circle"; 
         }else if (routeName === 'Call') {
           iconName = "ios-call"; //!focused ? "ios-call" :  "ios-add-circle";
         }else if (routeName === 'Contacts') {
-          iconName = "ios-contacts"; //!focused ? "ios-contacts" :  "ios-add-circle"; 
+          iconName = "ios-wallet"; //!focused ? "ios-contacts" :  "ios-add-circle"; 
         }else if (routeName === 'Wallet'){
           iconName = "ios-wallet"; //!focused ? "ios-wallet" :  "ios-add-circle"; 
         }

@@ -1,7 +1,7 @@
 import React from 'react'
-import { StyleSheet, View, ImageBackground, Image } from 'react-native'
-import {createMaterialTopTabNavigator} from 'react-navigation-tabs';
-import {createAppContainer} from 'react-navigation';
+import { StyleSheet, View, Alert } from 'react-native'
+import { createMaterialTopTabNavigator } from 'react-navigation-tabs';
+import { createAppContainer } from 'react-navigation';
 import { Layout, Colors, Screens } from '../../constants';
 import { Logo, Svgicon } from '../../components';
 import imgs from '../../assets/images';
@@ -10,7 +10,6 @@ import {
   Content,
   Icon,
   Spinner,
-  Button,
   Text,
   Header, Left, Body, Title, Right
 } from 'native-base';
@@ -26,11 +25,35 @@ import Headers from '../Headers'
 
 
 class Home extends React.Component {
-  constructor(props) {
-    super(props);
+  // constructor(props) {
+  //   super(props);
+
+  // }
+  // state = {
+  //   isVisible: false, //state of modal default false
+  // };
+
+  state = {
+    modalVisible: false
+  };
+
+  setModalVisible(visible) {
+    this.setState({ modalVisible: visible });
   }
+
+
   render() {
     return (
+<<<<<<< HEAD
+      <Container style={{ marginTop: 22}}>
+         {/* opacity: this.state.activeModal ? 0.5 : 1  */}
+        <Content enableOnAndroid >
+          <View >
+            <Headers />
+             <TabNavigator/>
+          </View>
+        </Content>
+=======
       <Container style={{marginTop:22}}>
           <Content enableOnAndroid>
           <Headers/>
@@ -38,6 +61,7 @@ class Home extends React.Component {
               <TabNavigator/>
             </View>
           </Content>
+>>>>>>> master
       </Container>
     );
   }
@@ -69,8 +93,6 @@ const TabNavigator = createAppContainer(createMaterialTopTabNavigator(
     },
   }
 ));
-
-
 const mapStateToProps = (state) => {
   return {
     user: state.auth.user,
