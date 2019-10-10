@@ -229,6 +229,13 @@ export default StyleSheet.create({
     marginRight:Layout.indent,
     textAlign:'center',
     width:Layout.window.width / 2
+  },
+  panelContactHome:{
+      height: Layout.window.height / 2 + 20
+  },
+  panelContact:{
+      //height:Layout.window.height,
+      backgroundColor: Colors.primary
   }
   // ,
   // titleSub:{

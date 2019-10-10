@@ -59,11 +59,12 @@ class Call extends React.Component {
               { this.props.isLoading ? 
                  <Spinner color={Colors.secondary} /> : 
                   <Button
+                  block 
                     primary
-                    style={{backgroundColor: Colors.primary, paddingLeft:10, paddingRight: 10, height:'100%'}}
+                    style={{backgroundColor: Colors.primary, height:'70%'}}
                     onPress={this.onClic}
-                  >
-                    <Text style={{textAlign:"center"}}>Llamar</Text>
+                  > 
+                  <Text>Llamar</Text>
                   </Button>
               }
             </Animatable.View> 
