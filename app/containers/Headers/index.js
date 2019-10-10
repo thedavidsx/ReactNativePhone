@@ -4,7 +4,9 @@ import { StyleSheet, View, ImageBackground, Image, Alert } from 'react-native'
 import { Avatar } from "react-native-elements";
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import { Layout, Colors, Screens } from '../../constants';
-import { Header, Body, Title } from 'native-base';
+import { Header, Body, Title, Container, Right } from 'native-base';
+import img from '../../assets/images'
+import styles from './styles';
 
 class Headers extends React.Component {
     constructor(props) {
@@ -26,29 +28,36 @@ class Headers extends React.Component {
 
     render() {
         return (
-
             <View>
-                <Header style={{ backgroundColor: Colors.primary, height: 100 }} >
-                    <Body style={{ padding: 0, flex: 1 }}>
-                        <Title style={{ fontSize: 14 }}>{'Saldo actual en tu cuenta'}</Title>
-                        <Title style={{ fontSize: 24 }} onPress={() => { this.HandlerAddBalance() }}>{this.state.simboloMonedaApp + " " + this.state.saldoPersona + " " + this.state.monedaApp + " "}
-                            <Ionicons name={"ios-add-circle"} type="ionicon" size={24} /></Title> 
-                              <Avatar
-                            rounded
-                            source={{
-                                uri:
-                                    'https://s3.amazonaws.com/uifaces/faces/twitter/ladylexy/128.jpg',
-                            }}
-                            onPress={() => { this.HandlerGoToSentings()}}
-                            size = {60}
-                            // avatarStyle={{width: 200, height: 200}}
-                        />
+                <Header style={styles.header} >
+                    <Body>
+                        <View style={styles.rows}>
+                            <View style={styles.titleOne}>
+                                <Title style={{ fontSize: 14 }}>{'Saldo actual en tu cuenta'}</Title>
+                            </View>
+                        </View>
+                        <View style={styles.rows}>
+                            <View style={styles.titleTwo}>
+                                <Title style={{ fontSize: 24 }} onPress={() => { this.HandlerAddBalance() }}>{this.state.simboloMonedaApp + " " + this.state.saldoPersona + " " + this.state.monedaApp + " "}
+                                    <Ionicons name={"ios-add-circle"} type="ionicon" size={24} /></Title>
+                            </View>
+                            <View style={styles.avatar}>
+                                <Avatar
+                                    rounded
+                                    source={img.contacWhite}
+                                    onPress={() => { this.HandlerGoToSentings() }}
+                                    size={60}
+                                // avatarStyle={{width: 200, height: 200}}
+                                />
+                            </View>
+                        </View>
                     </Body>
                 </Header>
             </View>
         );
     }
 }
+
 
 const mapStateToProps = (state) => {
     return {
