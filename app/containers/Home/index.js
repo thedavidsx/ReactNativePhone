@@ -44,27 +44,18 @@ class Home extends React.Component {
 
   render() {
     return (
-<<<<<<< HEAD
       <Container style={{ marginTop: 22}}>
          {/* opacity: this.state.activeModal ? 0.5 : 1  */}
+         <Headers />
         <Content enableOnAndroid >
           <View >
-            <Headers />
              <TabNavigator/>
           </View>
         </Content>
-=======
-      <Container style={{marginTop:22}}>
-          <Content enableOnAndroid>
-          <Headers/>
-            <View>
-              <TabNavigator/>
-            </View>
-          </Content>
->>>>>>> master
       </Container>
     );
   }
+  
 }
 
 
@@ -77,6 +68,7 @@ const TabNavigator = createAppContainer(createMaterialTopTabNavigator(
     tabBarPosition: 'top',
     swipeEnabled: true,
     animationEnabled: true,
+    lazy :true,
     tabBarOptions: {
       activeTintColor: Colors.primary,
       inactiveTintColor: '#AEAEAE',
