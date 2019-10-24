@@ -59,7 +59,7 @@ class SignUpForm extends React.Component {
           iconStyle={{top:5,paddingLeft:15}}
           validate={[required({msg: `${language.email} ${language.required}`}), email({msg: `${language.email} ${language.notValid}`})]}
         />
-        <Field 
+        {/* <Field 
           name="numberPhone" 
           component={InputBox} 
           placeholder={'Número de Telefono'}
@@ -67,7 +67,7 @@ class SignUpForm extends React.Component {
           icon='user'
           iconStyle={{top:5,paddingLeft:15}}
           validate={[required({msg: `${language.email} ${language.required}`}), email({msg: `${language.email} ${language.notValid}`})]}
-        />
+        /> */}
         <Field 
           name="password" 
           component={InputBox} 

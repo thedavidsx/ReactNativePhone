@@ -61,18 +61,19 @@ setModalVisible(visible) {
 }
 
 updateList = (text) =>{
-    this.setState({contactFind : this.state.dataContacts})
     const persona = this.state.search;
-    let objeto = _.find(this.state.dataContacts, function(o) { return o.name === persona; });
-    // this.setState({
-    //     dataContacts : objeto
-    // })
-    
-
-    if(persona === ''){
-        this.setState({dataContacts : contactFind})
+    if(this.state.contactFind.length === 0){
+        this.setState({contactFind : this.state.dataContacts})
     }
-
+    if(persona === ''){
+        this.setState({dataContacts : this.state.contactFind})
+    }else{
+        let objeto = _.find(this.state.dataContacts, function(o) { return o.name === persona; });
+        this.setState({
+            dataContacts : objeto != undefined ? [objeto] : []
+        })
+        
+    }
 }
 
 render() {

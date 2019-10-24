@@ -10,6 +10,7 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import {createBottomTabNavigator} from 'react-navigation-tabs';
 import Svgicon from '../components/Svgicon';
 import { Icon } from 'react-native-elements';
+// import { Icon } from 'native-base';
 
 
 const transitionConfig = () => ({
@@ -79,9 +80,9 @@ const AppTabs = createBottomTabNavigator(
     [Screens.CallScreen.route]:{
       screen: Call
     },
-    [Screens.Settings.route]: { 
-      screen: Settings 
-    },
+    // [Screens.Settings.route]: { 
+    //   screen: Settings 
+    // },
     [Screens.ContactScreen.route]:{
       screen: Contacts
     }
@@ -103,7 +104,8 @@ const AppTabs = createBottomTabNavigator(
         }else if (routeName === 'Wallet'){
           iconName = "ios-wallet"; //!focused ? "ios-wallet" :  "ios-add-circle"; 
         }
-        return <Icon  name={iconName} type="ionicon" size={32}/>;
+        return  <Icon  name={iconName} type="ionicon" size={32}/>;
+        //<Icon  name={iconName} type="ionicon" size={32}/>;
         //<Ionicons name="md-home"/>
       },
     }),

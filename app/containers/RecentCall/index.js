@@ -12,13 +12,14 @@ import {
 // import * as Permissions from 'expo-permissions';
 // import * as Contacts_ from 'expo-contacts';
 import { Modal, TouchableHighlight, View, Alert, Image, Button } from 'react-native';
-import { ListItem,Avatar } from 'react-native-elements'
+import { ListItem, Avatar } from 'react-native-elements'
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import { Layout, Colors, Screens, ActionTypes } from '../../constants';
 import appStyles from '../../theme/appStyles';
 import Strings from '../../constants/Strings';
 import Statusbar from "../../components/Statusbar";
 import imgs from '../../assets/images';
+import styles from './styles';
 //import ActionTypes from '../../actions/common';//../constants/
 
 
@@ -26,28 +27,71 @@ const list = [
   {
     name: 'Amy Farha',
     avatar_url: imgs.contacWhite,
-    subtitle: 'Vice President'
+    subtitle: 'Vice President',
+    numbers: [
+      {
+        contryCode: '+56',
+        number: '986480072'
+      },
+      {
+        contryCode: '+56',
+        number: '993621947'
+      }
+    ],
+    addFavorite : false
   },
   {
     name: 'Chris Jackson',
     avatar_url: imgs.contacWhite,
-    subtitle: 'Vice Chairman'
+    subtitle: 'Vice Chairman',
+    numbers: [
+      {
+        contryCode: '+56',
+        number: '993621947'
+      }
+    ],
+    addFavorite : false
   },
   {
     name: 'Jean Jackson',
     avatar_url: imgs.contacWhite,
-    subtitle: 'Vice Coal'
+    subtitle: 'Vice Coal',
+    numbers: [
+      {
+        contryCode: '+56',
+        number: '986480072'
+      },
+      {
+        contryCode: '+56',
+        number: '993621947'
+      }
+    ],
+    addFavorite : false
   },
   {
     name: 'Tonny Dammon',
     avatar_url: imgs.contacWhite,
-    subtitle: 'Tonny President'
+    subtitle: 'Tonny President',
+    numbers: [
+      {
+        contryCode: '+52',
+        number: '98548007'
+      }
+    ],
+    addFavorite : false
   }
   ,
   {
     name: 'Lean Tranck',
     avatar_url: imgs.contacWhite,
-    subtitle: 'Coal Chris'
+    subtitle: 'Coal Chris',
+    numbers: [
+      {
+        contryCode: '+54',
+        number: '986480072'
+      },
+    ],
+    addFavorite : false
   }
 ];
 
@@ -67,8 +111,10 @@ class RecentCall extends Component {
 
   state = {
     modalVisible: false,
-    avatarSelect : '',
-    nameSelect : ''
+    avatarSelect: '',
+    nameSelect: '',
+    listNumbersSelect: [],
+    addFavorite : false
   };
 
   setModalVisible(visible) {
@@ -81,14 +127,13 @@ class RecentCall extends Component {
   }
 
 
-  handlerCallContact = (data) =>{
-    //alert('LLAMO A ->' + data.name);
-    //dispatch({ type: ActionTypes.SHOWMODAL, showModal: true });
+  handlerCallContact = (data) => {
     this.setState(
-      { 
+      {
         modalVisible: true,
-        avatarSelect : data.avatar_url,
-        nameSelect : data.name
+        avatarSelect: data.avatar_url,
+        nameSelect: data.name,
+        listNumbersSelect: data.numbers
       });
   }
 
@@ -96,31 +141,37 @@ class RecentCall extends Component {
     alert('Realizar LLamada');
   }
 
+  HandlerAddFavorite = () => {
+    
+    this.setState({ addFavorite : !this.state.addFavorite });
+  }
+
+
   render() {
     return (
       <Container style={{ marginTop: 22 }}>
         <Content>
-            {
-              list.length > 0 ?
-                list.map((data, index) => {
-                  return (
-                    <List>
-                      <ListItem
-                        title={data.name}
-                        subtitle={data.subtitle}
-                        leftAvatar={
-                          { source: data.avatar_url }
-                        }
-                        bottomDivider
-                        onPress={ () => this.handlerCallContact(data)}
-                      />
-                    </List>
-                  )
-                })
+          {
+            list.length > 0 ?
+              list.map((data, index) => {
+                return (
+                  <List>
+                    <ListItem
+                      title={data.name}
+                      subtitle={data.subtitle}
+                      leftAvatar={
+                        { source: data.avatar_url }
+                      }
+                      bottomDivider
+                      onPress={() => this.handlerCallContact(data)}
+                    />
+                  </List>
+                )
+              })
               :
-              <Image source={imgs.recentCall} resizeMode="contain" /> 
-            }
-          <View style={{ marginTop: 22}}>
+              <Image source={imgs.recentCall} resizeMode="contain" />
+          }
+          <View style={{ marginTop: 22 }}>
             <Modal
               animationType="slide"
               transparent={true}
@@ -134,36 +185,61 @@ class RecentCall extends Component {
             >
               <View style={{ backgroundColor: 'black', height: '50%', opacity: 0.7 }}>
                 <TouchableHighlight
-                    onPress={() => {
-                      this.setModalVisible(!this.state.modalVisible);
-                    }}
-                    style = {{height:'100%'}}
-                    >
-                    <Text></Text>
-                  </TouchableHighlight>
+                  onPress={() => {
+                    this.setModalVisible(!this.state.modalVisible);
+                  }}
+                  style={{ height: '100%' }}
+                >
+                  <Text></Text>
+                </TouchableHighlight>
               </View>
-              <View style={{ backgroundColor: '#FFFFFF' , height: '100%',padding:30}}>
-                <View style={{flex: 3,flexDirection: 'row',top:'10%',borderColor:'red'}}>
-                  <View style={{width:'33%'}}>
-                    <Avatar
-                      rounded
-                      source={this.state.avatarSelect}
-                      size={64}
-                    />
+              <View style={{ backgroundColor: '#FFFFFF', height: '50%', padding: 10 }}>
+                <View style={{ flex: 2, flexDirection: 'column', top: '10%' }}>
+                  <View style={{ width: '100%', flexDirection: 'row' }}>
+                    <View>
+                      <Avatar
+                        rounded
+                        source={this.state.avatarSelect}
+                        size={64}
+                      />
+                    </View>
+                    <View style={{left:20,top:10}}>
+                      <Title style={styles.title}>{this.state.nameSelect}</Title>
+                    </View>
+                    <View style={{left:50,top:10}}>
+                      <Ionicons 
+                        name={this.state.addFavorite ? "ios-star": "md-star-outline"} 
+                        color={"#DAB62F"}
+                        type="ionicon" 
+                        size={28} onPress={() => { this.HandlerAddFavorite() }} />
+                    </View>
                   </View>
-                  <View style={{width:'33%'}}>
-                    <Title style={{ fontSize: 14 }}>{this.state.nameSelect}</Title>
-                  </View>
-                  <View style={{width:'33%'}}>
-                    <Ionicons name={"md-star-outline"} type="ionicon" size={24} />
+                  <View>
+                    {
+                      this.state.listNumbersSelect.length > 0 ?
+                        this.state.listNumbersSelect.map((data, index) => {
+                          return (
+                            <List >
+                              <ListItem
+                                title={data.contryCode + ' ' + data.number}
+                                bottomDivider
+                              //onPress={() => this.handlerCallContact(data)}
+                              />
+                            </List>
+                          )
+                        })
+                        : null
+                    }
                   </View>
                 </View>
-              </View>
-              <View>
-                <Button
+
+                <View>
+                  <Button
                     title="Llamar"
                     onPress={() => this.handlerCall()}
+                    style={{ backgroundColor: Colors.primary }}
                   />
+                </View>
               </View>
             </Modal>
           </View>
