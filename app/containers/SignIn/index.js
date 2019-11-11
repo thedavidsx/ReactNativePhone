@@ -47,6 +47,7 @@ class SignIn extends React.Component {
   }
 
   onSignupButtonPressHandler(){
+    
     this.props.navigation.navigate(Screens.SignUp.route)
   }
 

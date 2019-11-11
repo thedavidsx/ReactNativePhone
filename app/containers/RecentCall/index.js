@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { NavigationActions } from 'react-navigation';
 import { connect } from "react-redux";
 import {
   Container,
@@ -21,6 +22,9 @@ import Statusbar from "../../components/Statusbar";
 import imgs from '../../assets/images';
 import styles from './styles';
 //import ActionTypes from '../../actions/common';//../constants/
+import * as userActions from "../../actions/user";
+
+
 
 
 const list = [
@@ -102,11 +106,6 @@ class RecentCall extends Component {
 
   constructor(props) {
     super(props);
-
-    // this.state = { 
-    //     dataContacts:[],
-    //     modalVisible: false,
-    // };
   }
 
   state = {
@@ -114,7 +113,9 @@ class RecentCall extends Component {
     avatarSelect: '',
     nameSelect: '',
     listNumbersSelect: [],
-    addFavorite : false
+    addFavorite : false,
+    showModalCall : false,
+    dataCall : null
   };
 
   setModalVisible(visible) {
@@ -122,23 +123,36 @@ class RecentCall extends Component {
   }
 
 
-  async componentDidMount() {
+  // componentDidMount() {
 
-  }
+  // }
 
 
   handlerCallContact = (data) => {
+    this.props.setDataCall(data);
     this.setState(
       {
-        modalVisible: true,
+        modalVisible: true
+      });   
+  }
+
+  handlerCall = (data) => {
+    this.setState(
+      {
+        modalVisible: false
+      });
+      this.props.showModal();
+      this.props.goToCall();
+  }
+
+  handlerOnShowModalPreviewCall = () => {
+    const data = this.props.dataCall;
+    this.setState(
+      {
         avatarSelect: data.avatar_url,
         nameSelect: data.name,
         listNumbersSelect: data.numbers
       });
-  }
-
-  handlerCall = () => {
-    alert('Realizar LLamada');
   }
 
   HandlerAddFavorite = () => {
@@ -153,7 +167,7 @@ class RecentCall extends Component {
         <Content>
           {
             list.length > 0 ?
-              list.map((data, index) => {
+              list.map((data) => {
                 return (
                   <List>
                     <ListItem
@@ -177,10 +191,10 @@ class RecentCall extends Component {
               transparent={true}
               visible={this.state.modalVisible}
               onRequestClose={() => {
-                this.setModalVisible(!this.state.activeModal);
+                this.props.setDataCall(null);
               }}
               onShow={() => {
-                this.setModalVisible(!this.state.activeModal);
+                this.handlerOnShowModalPreviewCall();
               }}
             >
               <View style={{ backgroundColor: 'black', height: '50%', opacity: 0.7 }}>
@@ -236,13 +250,14 @@ class RecentCall extends Component {
                 <View>
                   <Button
                     title="Llamar"
-                    onPress={() => this.handlerCall()}
+                    onPress={() => this.handlerCall(this.state.listNumbersSelect[0])}
                     style={{ backgroundColor: Colors.primary }}
                   />
                 </View>
               </View>
             </Modal>
           </View>
+         
         </Content>
       </Container>
     );
@@ -251,13 +266,16 @@ class RecentCall extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    user: state.auth.user,
+    showModalCall: state.call.showModal,
+    dataCall : state.call.setDataCall
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    logout: () => dispatch(userActions.logoutUser()),
+    goToCall : () => dispatch(NavigationActions.navigate({ routeName: Screens.CallScreen.route })),
+    showModal: () => dispatch({ type: ActionTypes.SHOWMODALCALL, showModal: true }),//
+    setDataCall: (data) => dispatch({ type: ActionTypes.SETDATACALL, setDataCall: data }),
   };
 };
 

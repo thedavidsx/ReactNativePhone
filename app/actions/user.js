@@ -36,6 +36,7 @@ export const signup = payloads => dispatch => {
 }
 
 export const logoutUser = () => dispatch => {
+  console.log('PASOOOOOOOOOOOOOOOOOOOOOO');
   return dispatch({ type: ActionTypes.LOGOUT });
   
 }
