@@ -1,4 +1,4 @@
-import {StyleSheet} from 'react-native';
+import { StyleSheet } from 'react-native';
 import { Layout, Colors, Screens } from '../../constants';
 
 export default StyleSheet.create({
@@ -25,13 +25,35 @@ export default StyleSheet.create({
     marginRight: 0,
     flex: 1,
   },
-  loginForm:{
-    paddingRight:Layout.indent
+  loginForm: {
+    paddingRight: Layout.indent
   },
-  pickerStyle:{  
-    height: 150,  
-    width: "80%",  
-    color: '#344953',  
-    justifyContent: 'center',  
-}  
+  pickerStyle: {
+    height: 150,
+    width: "80%",
+    color: '#344953',
+    justifyContent: 'center',
+  },
+  title: {
+    fontSize: 28,
+    color: 'white',
+    textAlign: 'center',
+    fontFamily: 'Font-Regular',
+    fontWeight: 'bold',
+    textAlignVertical: 'center'
+  },
+  title2: {
+    fontSize: 24,
+    color: 'white',
+    textAlign: 'center',
+    fontFamily: 'Font-Regular',
+    textAlignVertical: 'center'
+  },
+  title3: {
+    fontSize: 28,
+    color: Colors.primary,
+    textAlign: 'center',
+    fontFamily: 'Font-Regular',
+    textAlignVertical: 'center'
+  }
 })

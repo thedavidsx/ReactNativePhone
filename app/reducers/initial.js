@@ -10,5 +10,9 @@ export const initialState = {
 		language:getLanguage(0),
 		languageId:0,
 		languageSet:0
+	},
+	call:{
+		showModal:false,
+		setDataCall:null
 	}
 };

@@ -100,7 +100,7 @@ const AppTabs = createBottomTabNavigator(
         }else if (routeName === 'Call') {
           iconName = "ios-call"; //!focused ? "ios-call" :  "ios-add-circle";
         }else if (routeName === 'Contacts') {
-          iconName = "ios-wallet"; //!focused ? "ios-contacts" :  "ios-add-circle"; 
+          iconName = "ios-contacts"; //!focused ? "ios-contacts" :  "ios-add-circle"; 
         }else if (routeName === 'Wallet'){
           iconName = "ios-wallet"; //!focused ? "ios-wallet" :  "ios-add-circle"; 
         }
@@ -145,7 +145,8 @@ const LoginStack = createStackNavigator({
 // Manifest of possible screens
 const PrimaryNav = createStackNavigator({
   [Screens.SignOutStack.route]: { screen: LoginStack },
-  [Screens.SignInStack.route]: { screen: DrawerNavigation }
+  [Screens.SignInStack.route]: { screen: DrawerNavigation },
+  [Screens.CallScreen.route]: { screen: Call }
 }, {
   headerMode: 'none',
   title: Screens.Title,
