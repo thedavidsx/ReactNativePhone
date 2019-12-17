@@ -12,6 +12,7 @@ import {
     Form,
     Header, Left, Body, Title, Right, Input
 } from 'native-base';
+import { Avatar } from 'react-native-elements'
 import { connect } from "react-redux";
 import styles from './styles';
 import AntDesign from 'react-native-vector-icons/AntDesign';
@@ -33,11 +34,11 @@ class ModalCall extends React.Component {
     handlerOnShowModalPreviewCall = () => {
         const data = this.props.dataCall;
         this.setState(
-        {
-            avatarSelect: data.avatar_url,
-            nameSelect: data.name,
-            phoneNumber: data.numbers[0]
-        });
+            {
+                avatarSelect: data.avatar_url,
+                nameSelect: data.name,
+                phoneNumber: data.numbers[0]
+            });
     }
 
     render() {
@@ -60,17 +61,24 @@ class ModalCall extends React.Component {
                                         height: '30%',
                                         padding: 0,
                                     }}>
-                                    <View style={{ top:'10%',flex: 10 }}>
+                                    <View style={{ top: '10%', flex: 10 }}>
                                         <Title style={styles.title}>{this.state.nameSelect}</Title>
                                     </View>
-                                    <View style={{top:'20%', flex: 10}}>
+                                    <View style={{ top: '20%', flex: 10 }}>
                                         <Title style={styles.title2}>{this.state.phoneNumber.contryCode + ' ' + this.state.phoneNumber.number}</Title>
                                     </View>
-                                    <View style={{top:'15%',flex: 10}}>
+                                    <View style={{ top: '15%', flex: 10 }}>
                                         <Text style={styles.title3}>Llamando...</Text>
                                     </View>
                                 </View>
-                                <View style={{top:"50%",alignSelf:"center"}}>
+                                <View style={{ top: "25%", alignSelf: "center" }}>
+                                    <Avatar
+                                        rounded
+                                        source={this.state.avatarSelect}
+                                        size={84}
+                                    />
+                                </View>
+                                <View style={{ top: "40%", alignSelf: "center" }}>
                                     <AntDesign
                                         name='phone'
                                         type='antdesign'

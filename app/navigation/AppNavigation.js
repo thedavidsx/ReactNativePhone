@@ -2,7 +2,7 @@ import React from 'react'
 import { Text, Animated, Easing } from 'react-native'
 import {  createDrawerNavigator,createAppContainer } from 'react-navigation'
 import {createStackNavigator} from 'react-navigation-stack';
-import { SignIn, SignUp, Forgotpassword, Home, Drawer, Settings, Call } from "../containers";
+import { SignIn, SignUp, Forgotpassword, Home, Drawer, Settings, Call,Wallet } from "../containers";
 import { Colors, Screens } from "../constants";
 import Contacts from '../containers/Contacts';
 
@@ -75,16 +75,16 @@ const transitionConfig = () => ({
 const AppTabs = createBottomTabNavigator(
   {
     [Screens.Home.route]: { 
-      screen: Home 
+      screen: (props => <Home  showHeaderDetail = {true} />)
     },
     [Screens.CallScreen.route]:{
       screen: Call
     },
-    // [Screens.Settings.route]: { 
-    //   screen: Settings 
-    // },
     [Screens.ContactScreen.route]:{
       screen: Contacts
+    },
+    [Screens.WalletScreen.route]:{
+      screen:  (props => <Wallet showHeaderDetail = {false} />)
     }
   },
   {
