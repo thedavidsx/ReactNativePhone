@@ -5,7 +5,7 @@ export default {
     height: 80
   },
   rows: {
-    flex: 2,
+    flex: 4,
     flexDirection: 'row'
   },
   titleOne: {
@@ -23,5 +23,16 @@ export default {
     height: 20,
     left: 100,
     bottom: 25
+  },
+  titleWallet: {
+    padding:10,
+    backgroundColor: '#0C2A4A',
+    opacity: 0.75,
+    width: '50%',
+    height: 63,
+    left: 0,
+    right: 10,
+    bottom: 30
+    
   }
 };

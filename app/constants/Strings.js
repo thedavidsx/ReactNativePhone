@@ -21,6 +21,7 @@ export default[
 		settings: 'Configuración',
 		call: 'Llamar',
 		contacts: 'Prueba',
+		wallet : 'Billetera',
 
 		// App intro sliders
 		slide1Title: 'Llamadas Internacionales',

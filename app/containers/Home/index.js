@@ -45,8 +45,7 @@ class Home extends React.Component {
   render() {
     return (
       <Container style={{ marginTop: 22}}>
-         {/* opacity: this.state.activeModal ? 0.5 : 1  */}
-         <Headers />
+         <Headers showHeaderDetail={this.props.showHeaderDetail}/>
         <Content enableOnAndroid >
           <View >
              <TabNavigator/>

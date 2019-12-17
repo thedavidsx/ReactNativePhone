@@ -42,5 +42,10 @@ export default {
     route : 'Contacts',
     icon:'settings',
     label: Strings.contacts,
+  },
+  WalletScreen : {
+    route : 'Wallet',
+    icon:'settings',
+    label: Strings.wallet,
   }
 };
