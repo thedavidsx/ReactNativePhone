@@ -47,7 +47,6 @@ class SignIn extends React.Component {
   }
 
   onSignupButtonPressHandler(){
-    
     this.props.navigation.navigate(Screens.SignUp.route)
   }
 
@@ -56,25 +55,26 @@ class SignIn extends React.Component {
   }
 
   signin(values, dispatch, props){
-    dispatch(userActions.signin(values))
-      .then(res => {
-        if(res.status == 200){
-          showToast(res.msg,"success");
-          dispatch(NavigationActions.navigate({ routeName: Screens.SignInStack.route }));
-          // this.props.navigation.navigate(Screens.SignInStack.route)
-        }else{
-          showToast(res.msg,"danger");
-        }
-      })
-      .catch(error => {
-        const messages = _.get(error, 'response.data.error')
-        message = (_.values(messages) || []).join(',')
-        if (message){
-         showToast(message,"danger");
-       }
-       console.log(`
-          Error messages returned from server:`, messages )
-      });
+    dispatch(NavigationActions.navigate({ routeName: Screens.Home.route }));
+    // dispatch(userActions.signin(values))
+    //   .then(res => {
+    //     if(res.status == 200){
+    //       showToast(res.msg,"success");
+    //       dispatch(NavigationActions.navigate({ routeName: Screens.SignInStack.route }));
+    //       // this.props.navigation.navigate(Screens.SignInStack.route)
+    //     }else{
+    //       showToast(res.msg,"danger");
+    //     }
+    //   })
+    //   .catch(error => {
+    //     const messages = _.get(error, 'response.data.error')
+    //     message = (_.values(messages) || []).join(',')
+    //     if (message){
+    //      showToast(message,"danger");
+    //    }
+    //    console.log(`
+    //       Error messages returned from server:`, messages )
+    //   });
   }
 
   render(){

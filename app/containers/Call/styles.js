@@ -55,5 +55,22 @@ export default StyleSheet.create({
     textAlign: 'center',
     fontFamily: 'Font-Regular',
     textAlignVertical: 'center'
+  },
+  errorContainer: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    padding: 10
+  },
+  errorText: {
+    color: "#FFF"
+  },
+  initContainer: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center'
+  },
+  initText: {
+    color: "#FFF"
   }
 })
