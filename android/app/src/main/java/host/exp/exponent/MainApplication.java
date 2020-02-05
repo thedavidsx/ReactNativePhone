@@ -15,6 +15,7 @@ import okhttp3.OkHttpClient;
 // import com.facebook.react.ReactApplication;
 import com.oblador.vectoricons.VectorIconsPackage;
 import org.umhan35.RNSearchBarPackage;
+import com.carusto.ReactNativePjSip.PjSipModulePackage;
 
 public class MainApplication extends ExpoApplication implements AppLoaderPackagesProviderInterface<ReactPackage> {
 
@@ -32,7 +33,8 @@ public class MainApplication extends ExpoApplication implements AppLoaderPackage
         // Needed for `react-native link`
         // new MainReactPackage(),
             new VectorIconsPackage(),
-            new RNSearchBarPackage()
+            new RNSearchBarPackage(),
+            new PjSipModulePackage()
     );
   }
 

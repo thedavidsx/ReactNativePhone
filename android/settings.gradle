@@ -6,6 +6,7 @@ project(':react-native-search-bar').projectDir = new File(rootProject.projectDir
 include ':react-native-pjsip'
 project(':react-native-pjsip').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-pjsip/android')
 
+
 // Import gradle helpers for unimodules.
 apply from: '../node_modules/react-native-unimodules/gradle.groovy'
 

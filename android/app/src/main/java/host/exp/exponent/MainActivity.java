@@ -11,9 +11,6 @@ import java.util.List;
 import host.exp.exponent.experience.DetachActivity;
 import host.exp.exponent.generated.DetachBuildConstants;
 
-import android.view.Window;
-import android.view.WindowManager;
-
 public class MainActivity extends DetachActivity {
 
   @Override
@@ -46,15 +43,4 @@ public class MainActivity extends DetachActivity {
     // Add extra initialProps here
     return expBundle;
   }
-
-  @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-
-        Window w = getWindow();
-        w.setFlags(
-            WindowManager.LayoutParams.FLAG_SHOW_WHEN_LOCKED,
-            WindowManager.LayoutParams.FLAG_SHOW_WHEN_LOCKED
-        );
-    }
 }

@@ -8,9 +8,6 @@
     android:name="com.pushpanathan.pushbase.permission.C2D_MESSAGE"
     android:protectionLevel="signature"/>
 
-  <uses-feature android:name="android.hardware.camera" />
-  <uses-feature android:name="android.hardware.camera.autofocus"/>
-
   <!-- These are required permissions to make the app run -->
   <uses-permission android:name="com.pushpanathan.pushbase.permission.C2D_MESSAGE" />
   <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
@@ -19,8 +16,8 @@
   <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
   <uses-permission android:name="android.permission.WAKE_LOCK" />
   <uses-permission android:name="android.permission.PROCESS_OUTGOING_CALLS"/>
-  <uses-permission android:name="android.permission.CALL_PHONE"/>
-  <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+<uses-permission android:name="android.permission.CALL_PHONE"/>
+<uses-permission android:name="android.permission.READ_PHONE_STATE" />
 
   <!-- ADD PERMISSIONS HERE -->
   <!-- BEGIN OPTIONAL PERMISSIONS -->
@@ -174,7 +171,7 @@
             <action android:name="android.intent.action.VIEW" />
             <category android:name="android.intent.category.DEFAULT" />
             <category android:name="android.intent.category.BROWSABLE" />
-            <data android:scheme="expo.modules.payments.stripe.8b7beddf-e859-41be-9d3a-46ec14582825" />
+            <data android:scheme="expo.modules.payments.stripe.2e8f76cd-bd26-4f2f-b874-e79e7c381180" />
         </intent-filter>
     </activity>
     <!-- Versioned Activity for Stripe -->
@@ -292,6 +289,16 @@
     </receiver>
 
     <service
+        android:name="com.carusto.ReactNativePjSip.PjSipService"
+        android:enabled="true"
+        android:exported="true" />
+    <receiver android:name="com.carusto.ReactNativePjSip.PjSipConnectivityReceiver">
+        <intent-filter>
+          <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+        </intent-filter>
+    </receiver>
+
+    <service
       android:name=".gcm.ExponentGcmListenerService"
       android:exported="false">
       <intent-filter>
@@ -328,16 +335,6 @@
       android:exported="false">
     </service>
 
-    <service
-        android:name="com.carusto.ReactNativePjSip.PjSipService"
-        android:enabled="true"
-        android:exported="true" />
-    <receiver android:name="com.carusto.ReactNativePjSip.PjSipConnectivityReceiver">
-        <intent-filter>
-          <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
-        </intent-filter>
-    </receiver>
-
     <!-- ImagePicker native module -->
     <activity
       android:name="com.theartofdev.edmodo.cropper.CropImageActivity"
@@ -364,7 +361,7 @@
     <!-- The Facebook SDK runs FacebookInitProvider on startup and crashes if there isn't an ID here -->
     <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="fb0"/>
 
-    <meta-data android:name="standaloneStripeScheme" android:value="8b7beddf-e859-41be-9d3a-46ec14582825" />
+    <meta-data android:name="standaloneStripeScheme" android:value="2e8f76cd-bd26-4f2f-b874-e79e7c381180" />
   </application>
 
 </manifest>

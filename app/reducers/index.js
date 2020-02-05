@@ -2,7 +2,6 @@
 import auth from './auth';
 import common from './common';
 import call from './call';
-import pjsip from './pjsip';
 import navigation from './navigation';
 import { reducer as formReducer } from 'redux-form';
 
@@ -12,7 +11,6 @@ const rootReducer = {
   common: common,
   call : call,
   form: formReducer,
-  pjsip: pjsip,
   navigation: navigation,
 };
 
